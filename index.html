@@ -61,7 +61,7 @@
   .btn-ghost{border-color:var(--line);color:var(--ink);background:#fff;}
   .btn-ghost:hover{border-color:var(--soft);background:var(--bg-2);text-decoration:none;}
 
-  section.block{padding:52px 0;border-top:1px solid var(--line);}
+  section.block{padding:52px 0;border-top:1px solid var(--line);scroll-margin-top:64px;}
   .sec-label{font-family:"Newsreader",serif;font-weight:600;font-size:30px;
     letter-spacing:-.015em;color:var(--ink);margin:0 0 28px;position:relative;
     padding-bottom:14px;}
@@ -137,8 +137,10 @@
   .proj h3{font-family:"Newsreader",serif;font-weight:600;font-size:21px;
     color:var(--ink);margin:0 0 12px;letter-spacing:-.01em;}
   .proj p{margin:0 0 13px;color:var(--body);font-size:16px;}
-  .proj .role{font-size:14.5px;color:var(--soft);margin:0 0 13px;}
-  .proj .role b{color:var(--accent);font-weight:600;}
+  .proj .role{display:inline-flex;align-items:center;gap:0;margin:0 0 13px;
+    background:var(--bg-2);border:1px solid var(--line);border-radius:20px;
+    padding:6px 14px;font-size:13.5px;color:var(--body);}
+  .proj .role b{font-weight:600;color:var(--accent);margin-right:6px;}
   .proj-img{width:100%;border:1px solid var(--line);border-radius:10px;margin:0 0 15px;
     background:var(--bg-2);display:flex;align-items:center;justify-content:center;
     color:var(--soft);font-size:13.5px;text-align:center;overflow:hidden;padding:0 16px;
@@ -156,7 +158,10 @@
   .award:first-child{padding-top:0;}
   .award:last-child{border-bottom:none;padding-bottom:0;}
   .award h4{font-size:16.5px;font-weight:600;color:var(--ink);margin:0 0 3px;}
-  .award .org{font-size:14px;color:var(--soft);margin:0;}
+  .award .org{font-size:14px;color:var(--soft);margin:0 0 6px;}
+  .award .role-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);
+    background:var(--accent-soft);border:1px solid var(--line);padding:3px 10px;border-radius:20px;
+    letter-spacing:.02em;}
   .award .date{font-size:13.5px;color:var(--soft);white-space:nowrap;}
 
   /* skills */
@@ -241,14 +246,13 @@
       physical layer all the way up to the algorithm.
     </p>
     <p>
-      My path has been deliberately bottom-up. I started with hands-on
-      <strong>autonomous driving</strong>, building vehicle hardware and embedded
-      systems and designing steering and speed controllers. I then moved into
-      <strong>robot simulation and digital twins</strong>, running autonomous-navigation
-      and manipulation algorithms for humanoid and mobile robots inside
-      <strong>NVIDIA Isaac Sim</strong>, and building physically modeled virtual environments.
-      My current research moves into <strong>perception</strong>, studying
-      ego-velocity estimation with 4D radar.
+      My interest began with mobility itself — the way physical systems move and interact with the world.
+      This drew me toward vehicle hardware and <strong>embedded systems</strong>, where I built actuators,
+      sensors, and MCU communication from the ground up. From there I moved into
+      <strong>autonomous driving</strong>, designing steering and speed controllers, then expanded
+      further into <strong>simulation and digital twins</strong>, running navigation and manipulation
+      algorithms for humanoid and mobile robots in <strong>NVIDIA Isaac Sim</strong>.
+      My current research moves into <strong>perception</strong>, studying ego-velocity estimation with 4D radar.
     </p>
     <p>
       Across hardware, simulation, and sensing, I have come to see autonomy as one
@@ -376,7 +380,7 @@
       <h3>Autonomous Vehicle Build</h3>
       <div class="proj-img"><img src="img/autonomous-pcb.png" alt="Vehicle control PCB"></div>
       <p>
-        Led the overall build of an autonomous vehicle. Designed the hardware/embedded system
+        As club leader, I oversaw the entire vehicle build process, designing the hardware/embedded system
         (actuators, sensors, MCU communication) and implemented steering control (Pure Pursuit)
         and speed control (PID).
       </p>
@@ -429,6 +433,7 @@
       <div>
         <h4>Excellence Award — Self-Built Autonomous Vehicle Division</h4>
         <p class="org">University Creative Mobility Competition · Korea Transportation Safety Authority (KOTSA)</p>
+        <span class="role-tag">Leader</span>
       </div>
       <span class="date">Nov 2025</span>
     </div>
@@ -436,6 +441,7 @@
       <div>
         <h4>Acceleration Award</h4>
         <p class="org">International Self-Built Car Competition · Yeungnam University</p>
+        <span class="role-tag">Team Member</span>
       </div>
       <span class="date">Nov 2021</span>
     </div>
