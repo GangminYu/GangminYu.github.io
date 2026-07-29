@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gangmin Yu — Mechanical Engineering undergraduate at Kyonggi University (RVLab). Mobility systems, vehicle control, autonomous driving, and robot simulation.">
+<title>Gangmin Yu — Mechanical Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --body:#46474a;
+    --soft:#76777b;
+    --line:#e8e7e3;
+    --line-2:#f0efec;
+    --bg:#ffffff;
+    --bg-2:#faf9f7;
+    --accent:#2f5d50;
+    --accent-soft:#eaf0ed;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--body);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;text-underline-offset:3px;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+
+  header.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .brand{font-weight:600;font-size:16px;color:var(--ink);letter-spacing:-.01em;}
+  nav.links{display:flex;gap:2px;flex-wrap:wrap;}
+  nav.links a{font-size:14px;font-weight:450;color:var(--soft);padding:6px 10px;border-radius:6px;}
+  nav.links a:hover{color:var(--ink);background:var(--bg-2);text-decoration:none;}
+
+  .hero{padding:80px 0 56px;display:flex;align-items:center;gap:44px;}
+  .hero-text{flex:1;min-width:0;}
+  .hero-photo{flex:none;width:190px;}
+  .hero-photo img{width:190px;height:228px;object-fit:cover;border-radius:14px;
+    border:1px solid var(--line);box-shadow:0 14px 40px -22px rgba(20,30,60,.5);display:block;}
+  .hero .eyebrow{font-size:14px;color:var(--accent);font-weight:600;letter-spacing:.04em;margin-bottom:14px;}
+  .hero h1{font-family:"Newsreader",serif;font-weight:500;font-size:clamp(40px,7vw,60px);
+    line-height:1.05;letter-spacing:-.02em;color:var(--ink);margin:0 0 10px;}
+  .hero .subrole{font-size:16px;color:var(--soft);font-weight:500;margin:0 0 22px;letter-spacing:.005em;}
+  .hero .lead{font-size:19px;color:var(--body);max-width:560px;margin:0 0 30px;}
+  .hero-email{font-size:15px;color:var(--soft);margin:0 0 16px;}
+  .hero-email a{color:var(--accent);}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{font-size:15px;font-weight:500;padding:11px 20px;border-radius:8px;
+    display:inline-flex;align-items:center;gap:7px;border:1px solid transparent;transition:.15s;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:#264a40;text-decoration:none;}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:#fff;}
+  .btn-ghost:hover{border-color:var(--soft);background:var(--bg-2);text-decoration:none;}
+
+  section.block{padding:52px 0;border-top:1px solid var(--line);scroll-margin-top:64px;}
+  .sec-label{font-family:"Newsreader",serif;font-weight:600;font-size:30px;
+    letter-spacing:-.015em;color:var(--ink);margin:0 0 28px;position:relative;
+    padding-bottom:14px;}
+  .sec-label::after{content:"";position:absolute;left:0;bottom:0;
+    width:40px;height:2px;background:var(--accent);border-radius:2px;}
+
+  .about p{margin:0 0 18px;color:var(--body);}
+  .about p strong{color:var(--ink);font-weight:600;}
+  .about p:last-child{margin-bottom:0;}
+
+  .pills{display:flex;flex-wrap:wrap;gap:9px;}
+  .pill{font-size:14.5px;color:var(--ink);background:var(--bg-2);
+    border:1px solid var(--line);padding:7px 14px;border-radius:20px;}
+
+  /* ongoing research */
+  .research{padding:24px 0;border-bottom:1px solid var(--line-2);}
+  .research:first-of-type{padding-top:0;}
+  .research:last-child{border-bottom:none;padding-bottom:0;}
+  .research .rtop{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+  .research .rtag{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    color:#b25a16;background:#fbeede;padding:3px 9px;border-radius:5px;}
+  .research h3{font-family:"Newsreader",serif;font-weight:600;font-size:20px;
+    color:var(--ink);margin:0;letter-spacing:-.01em;}
+  .research p{margin:8px 0 0;color:var(--body);font-size:16px;}
+  .research ul{margin:10px 0 0;padding-left:18px;color:var(--body);font-size:15.5px;}
+  .research ul li{margin-bottom:4px;}
+
+  /* publications */
+  .pub-group{font-size:13px;font-weight:600;color:var(--accent);
+    letter-spacing:.08em;margin:0 0 14px;padding-bottom:10px;
+    border-bottom:1px solid var(--line);text-transform:uppercase;
+    display:flex;align-items:center;gap:9px;}
+  .pub-group::before{content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--accent);display:inline-block;flex:none;}
+  .pub-group:not(:first-of-type){margin-top:30px;}
+  .pub-card{display:grid;grid-template-columns:84px 1fr auto;gap:18px;align-items:flex-start;
+    padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff;
+    margin-bottom:14px;transition:.16s;text-decoration:none;}
+  .pub-card:hover{border-color:var(--accent);box-shadow:0 6px 22px -14px rgba(47,93,80,.4);
+    text-decoration:none;transform:translateY(-1px);}
+  .pub-card:last-child{margin-bottom:0;}
+  .pub-card-static{cursor:default;}
+  .pub-card-static:hover{border-color:var(--line);box-shadow:none;transform:none;}
+  .pub-thumb{width:84px;height:108px;border:1px solid var(--line);border-radius:6px;
+    background:var(--bg-2);overflow:hidden;display:flex;align-items:center;justify-content:center;
+    flex:none;}
+  .pub-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .pub-thumb .ph{font-size:10.5px;color:var(--soft);font-weight:600;letter-spacing:.04em;}
+  .pub-main{min-width:0;}
+  .pub-badge{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.03em;
+    color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:5px;margin-bottom:9px;}
+  .pub-badge-ongoing{color:#b25a16;background:#fbeede;}
+  .pub-card .ptitle{color:var(--ink);font-weight:600;font-size:16.5px;line-height:1.45;margin:0 0 8px;}
+  .pub-card .pauthors{color:var(--body);font-size:14px;margin:0 0 4px;line-height:1.5;}
+  .pub-card .pauthors .me{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  .pub-card .pvenue{color:var(--soft);font-size:13.5px;font-style:italic;margin:0;}
+  .pub-type{font-size:12px;font-weight:600;color:var(--soft);border:1px solid var(--line);
+    padding:4px 11px;border-radius:20px;flex:none;align-self:flex-start;}
+  .pub-award{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;
+    letter-spacing:.02em;color:#8a6d1a;background:#fdf3d9;border:1px solid #f0dfa0;
+    padding:3px 9px;border-radius:5px;margin-bottom:9px;margin-left:6px;}
+  .pub-award svg{width:11px;height:11px;flex:none;}
+  @media (max-width:600px){
+    .pub-card{grid-template-columns:64px 1fr;gap:14px;padding:15px;}
+    .pub-thumb{width:64px;height:84px;}
+    .pub-type{display:none;}
+  }
+
+  /* projects */
+  .proj-group{font-size:13px;font-weight:600;color:var(--accent);
+    letter-spacing:.08em;margin:0 0 4px;padding-bottom:10px;
+    border-bottom:1px solid var(--line);text-transform:uppercase;
+    display:flex;align-items:center;gap:9px;}
+  .proj-group::before{content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--accent);display:inline-block;flex:none;}
+  .proj-group + .proj{padding-top:22px;}
+  .proj-group:not(:first-of-type){margin-top:34px;}
+  .proj-list{margin:0 0 13px;padding-left:18px;color:var(--body);font-size:15.5px;}
+  .proj-list li{margin-bottom:4px;}
+  .proj{padding:26px 0;border-bottom:1px solid var(--line-2);}
+  .proj:last-child{border-bottom:none;padding-bottom:0;}
+  .proj:first-of-type{padding-top:0;}
+  .proj .pmeta{display:flex;align-items:center;gap:10px;margin-bottom:9px;flex-wrap:wrap;}
+  .proj .porg{font-size:13.5px;color:var(--soft);font-weight:500;}
+  .proj .ptag{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:5px;}
+  .proj h3{font-family:"Newsreader",serif;font-weight:600;font-size:21px;
+    color:var(--ink);margin:0 0 12px;letter-spacing:-.01em;}
+  .proj p{margin:0 0 13px;color:var(--body);font-size:16px;}
+  .proj .role{display:inline-flex;align-items:center;gap:0;margin:0 0 13px;
+    background:var(--bg-2);border:1px solid var(--line);border-radius:20px;
+    padding:6px 14px;font-size:13.5px;color:var(--body);}
+  .proj .role b{font-weight:600;color:var(--accent);margin-right:6px;}
+  .proj-img{width:100%;border:1px solid var(--line);border-radius:10px;margin:0 0 15px;
+    background:var(--bg-2);display:flex;align-items:center;justify-content:center;
+    color:var(--soft);font-size:13.5px;text-align:center;overflow:hidden;padding:0 16px;
+    min-height:160px;}
+  .proj-img img{width:100%;height:auto;object-fit:contain;display:block;}
+  .plinks{display:flex;gap:8px;flex-wrap:wrap;}
+  .plink{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line);
+    padding:7px 13px;border-radius:7px;background:#fff;display:inline-flex;align-items:center;gap:6px;}
+  .plink:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+  .plink svg{width:13px;height:13px;}
+
+  /* awards */
+  .award{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 0;
+    border-bottom:1px solid var(--line-2);align-items:baseline;}
+  .award:first-child{padding-top:0;}
+  .award:last-child{border-bottom:none;padding-bottom:0;}
+  .award h4{font-size:16.5px;font-weight:600;color:var(--ink);margin:0 0 3px;}
+  .award .org{font-size:14px;color:var(--soft);margin:0 0 6px;}
+  .award .role-tag{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);
+    background:var(--accent-soft);border:1px solid var(--line);padding:3px 10px;border-radius:20px;
+    letter-spacing:.02em;}
+  .award .date{font-size:13.5px;color:var(--soft);white-space:nowrap;}
+
+  /* skills */
+  .skills-grid{display:flex;flex-direction:column;gap:18px;}
+  .skill-line{display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:baseline;}
+  .skill-line .sk{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--soft);}
+  .skill-line .sv{display:flex;flex-wrap:wrap;gap:8px;}
+  .skill-line .sv span{font-size:14.5px;color:var(--ink);background:var(--bg-2);
+    border:1px solid var(--line);padding:5px 11px;border-radius:6px;}
+
+  .contact{padding:56px 0 0;border-top:1px solid var(--line);}
+  .contact h2{font-family:"Newsreader",serif;font-weight:500;font-size:28px;color:var(--ink);margin:0 0 10px;}
+  .contact p{color:var(--body);margin:0 0 24px;max-width:480px;}
+  .clist{display:flex;flex-direction:column;gap:2px;}
+  .crow{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:11px 0;
+    border-bottom:1px solid var(--line-2);font-size:15.5px;align-items:baseline;}
+  .crow .ck{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--soft);}
+
+  footer{padding:40px 0 56px;}
+  footer p{font-size:13.5px;color:var(--soft);margin:3px 0;}
+
+  @media (max-width:600px){
+    nav.links{display:none;}
+    .hero{padding:48px 0 40px;flex-direction:column-reverse;align-items:flex-start;gap:26px;}
+    .hero-photo{width:120px;}
+    .hero-photo img{width:120px;height:146px;border-radius:12px;}
+    .skill-line{grid-template-columns:1fr;gap:8px;}
+    .crow{grid-template-columns:1fr;gap:2px;}
+    .award{grid-template-columns:1fr;gap:4px;}
+    .award .date{order:-1;}
+    .wrap,.nav-inner{padding-left:24px;padding-right:24px;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Gangmin Yu</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#skills">Skills</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Kyonggi Univ. · RVLab</p>
+      <h1>Gangmin Yu</h1>
+      <p class="subrole">Mechanical Engineering · Undergraduate Researcher</p>
+      <p class="lead">
+        I work on mobility and robotics — from vehicle hardware and control,
+        to sensor perception and simulation. Currently an undergraduate researcher
+        at RVLab, Kyonggi University.
+      </p>
+      <p class="hero-email">E-mail: <a href="mailto:ykm020130@kyonggi.ac.kr">ykm020130@kyonggi.ac.kr</a></p>
+      <div class="hero-actions">
+        <a href="Gangmin_Yu_CV.pdf" target="_blank" rel="noopener" class="btn btn-primary">Download CV (PDF)</a>
+        <a href="https://sites.google.com/view/rv-lab" target="_blank" rel="noopener" class="btn btn-ghost">Lab homepage ↗</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="img/profile.png" alt="Gangmin Yu">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="block about" id="about">
+    <p class="sec-label">About</p>
+    <p>
+      I am an undergraduate student in <strong>Mechanical Engineering</strong> and an
+      <strong>undergraduate researcher at RVLab, Kyonggi University</strong>
+      (advisor: Prof. Minseong Choi). I am fascinated by mobility — how machines
+      perceive, decide, and move — and I like to understand these systems from the
+      physical layer all the way up to the algorithm.
+    </p>
+    <p>
+      My interest began with mobility itself — the way physical systems move and interact with the world.
+      This drew me toward vehicle hardware and <strong>embedded systems</strong>, where I built actuators,
+      sensors, and MCU communication from the ground up. From there I moved into
+      <strong>autonomous driving</strong>, designing steering and speed controllers, then expanded
+      further into <strong>simulation and digital twins</strong>, running navigation and manipulation
+      algorithms for humanoid and mobile robots in <strong>NVIDIA Isaac Sim</strong>.
+      My current research moves into <strong>perception</strong>, studying ego-velocity estimation with 4D radar.
+    </p>
+    <p>
+      Across hardware, simulation, and sensing, I have come to see autonomy as one
+      connected problem — from the actuator to the algorithm. For graduate study, I want
+      to deepen this into rigorous research on
+      <strong>perception and control for autonomous mobility</strong>.
+    </p>
+  </section>
+
+  <!-- RESEARCH INTERESTS -->
+  <section class="block" id="interests">
+    <p class="sec-label">Research Interests</p>
+    <div class="pills">
+      <span class="pill">Autonomous Driving &amp; Navigation</span>
+      <span class="pill">Vehicle Dynamics &amp; Control</span>
+      <span class="pill">Radar / Sensor Perception</span>
+      <span class="pill">Robot Simulation &amp; IsaacSim</span>
+      <span class="pill">Robot Mechanical Design</span>
+      <span class="pill">Embedded / Mechatronics</span>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="block" id="publications">
+    <p class="sec-label">Publications</p>
+
+    <p class="pub-group">International Journals</p>
+
+    <div class="pub-card pub-card-static">
+      <div class="pub-thumb"><!-- <img src="img/pub-radar.png" alt="paper thumbnail"> --><span class="ph">PAPER</span></div>
+      <div class="pub-main">
+        <span class="pub-badge pub-badge-ongoing">On going</span>
+        <p class="ptitle">Vehicle Pose Estimation via License Plate-Based Camera-Radar Calibration</p>
+        <p class="pauthors"><span class="me">Gangmin Yu</span>*, Minjun Seong*, and Minseong Choi</p>
+        <p class="pvenue">IEEE Sensors, 2026</p>
+      </div>
+    </div>
+
+    <p class="pub-group">Domestic Conferences</p>
+
+    <!-- 각 카드의 href="#"를 논문 드라이브 링크로 교체하세요 -->
+    <a class="pub-card" href="https://drive.google.com/file/d/1_bMZV07juqGqwW6OXLzLeSOprFoxALYz/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="pub-thumb"><img src="img/pub1.png" alt="paper thumbnail"></div>
+      <div class="pub-main">
+        <span class="pub-badge">Domestic · 2026</span>
+        <span class="pub-award"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3a2 2 0 0 1-2 4M7 5H4a2 2 0 0 0 2 4"/></svg>학부생 논문상</span>
+        <p class="ptitle">Swerve 구동 휴머노이드를 위한 Holonomic 실내 자율 탐색 알고리즘</p>
+        <p class="pauthors">이충헌, <span class="me">유강민</span>, 박영상, 최민성, 조우성</p>
+        <p class="pvenue">제어·로봇·시스템학회(ICROS) 학술대회, 2026</p>
+      </div>
+      <span class="pub-type">Paper</span>
+    </a>
+
+    <a class="pub-card" href="https://drive.google.com/file/d/1a5B2n1NYuLHUHbGlVQ5ebjf14QUzO9Lx/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="pub-thumb"><img src="img/pub2.png" alt="paper thumbnail"></div>
+      <div class="pub-main">
+        <span class="pub-badge">Domestic · 2026</span>
+        <p class="ptitle">IsaacSim 기반 휴머노이드 ACT 학습제어를 위한 VR 원격조작 및 Jitter 저감 기법</p>
+        <p class="pauthors">김도윤, 강민수, <span class="me">유강민</span>, 서형태, 박영상, 최민성</p>
+        <p class="pvenue">제어·로봇·시스템학회(ICROS) 학술대회, 2026</p>
+      </div>
+      <span class="pub-type">Paper</span>
+    </a>
+
+    <a class="pub-card" href="https://drive.google.com/file/d/1oXCUpqYZzwCfXPAfpzzkVjmjOjWubTAZ/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="pub-thumb"><img src="img/pub3.png" alt="paper thumbnail"></div>
+      <div class="pub-main">
+        <span class="pub-badge">Domestic · 2026</span>
+        <span class="pub-award"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3a2 2 0 0 1-2 4M7 5H4a2 2 0 0 0 2 4"/></svg>학부생 논문상</span>
+        <p class="ptitle">도로 노면 의미론적 분할 기법의 소수 클래스 불균형 해소를 위한 원근 변환 기반 데이터 증강 기법</p>
+        <p class="pauthors">성민준, <span class="me">유강민</span>, 김준규, 한승호, 양승훈, 최민성</p>
+        <p class="pvenue">제어·로봇·시스템학회(ICROS) 학술대회, 2026</p>
+      </div>
+      <span class="pub-type">Paper</span>
+    </a>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="block" id="projects">
+    <p class="sec-label">Projects</p>
+
+    <p class="proj-group">Ongoing</p>
+
+    <article class="proj">
+      <div class="pmeta">
+        <span class="porg">RVLab, Kyonggi University</span>
+      </div>
+      <h3>4D Radar Ego-Velocity Estimation</h3>
+      <div class="proj-img"><img src="img/radar.png" alt="4D radar ego-velocity estimation"></div>
+      <p>
+        Estimating the ego-vehicle's velocity directly from 4D radar measurements, toward
+        robust self-motion estimation for autonomous driving under conditions where vision
+        or other sensors degrade.
+      </p>
+      <p class="role"><b>Focus</b> — 4D radar · ego-velocity estimation · autonomous driving perception</p>
+    </article>
+
+    <article class="proj">
+      <div class="pmeta">
+        <span class="porg">RVLab · Humanoid &amp; Mobile Robots</span>
+      </div>
+      <h3>Manipulation &amp; Navigation for Humanoids in Domestic Environments</h3>
+      <div class="proj-img"><img src="img/humanoid.png" alt="Manipulation & Navigation for Humanoids — Isaac Sim digital twin"></div>
+      <p>
+        Applied physics-based digital-twin simulation and MetaQuest 3 teleoperation for a
+        door-opening task in Isaac Sim, and implemented autonomous driving and navigation
+        using AMCL localization on a generated 2D LiDAR map.
+      </p>
+      <p class="role"><b>Focus</b> — digital twin · VR teleoperation · AMCL navigation · Isaac Sim</p>
+      <div class="plinks">
+        <a href="https://drive.google.com/file/d/19Mz59IBtXx2H6np8Ejp0iIf7B9gfUPpD/view?usp=sharing" target="_blank" rel="noopener" class="plink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Video</a>
+      </div>
+    </article>
+
+    <p class="proj-group">Past</p>
+
+    <article class="proj">
+      <div class="pmeta">
+        <span class="porg">Commissioned project · Korea Institute of Machinery &amp; Materials (KIMM)</span>
+      </div>
+      <h3>3D Simulation Environments &amp; Physics Modeling for Daily-Life Scenes</h3>
+      <div class="proj-img"><img src="img/sim.png" alt="Isaac Sim physics environment"></div>
+      <p>
+        Building physically simulated indoor environments in NVIDIA Isaac Sim so robots can be
+        tested through realistic interaction, on top of the PhysX physics engine.
+      </p>
+      <ul class="proj-list">
+        <li>Authoring rigid-body and collider models from input <code>.obj</code> meshes (convex / mesh colliders)</li>
+        <li>Setting per-object physics parameters — mass, inertia, friction, restitution</li>
+        <li>Defining articulated structures (hinge / prismatic joints) for doors and drawers, with motion limits and dynamics</li>
+      </ul>
+      <p class="role"><b>Focus</b> — Isaac Sim · PhysX · rigid-body &amp; collision modeling · articulation</p>
+      <div class="plinks">
+        <a href="https://drive.google.com/file/d/1tC1MjCAIaJ7jQFKuVrznn8dnNz8BZ6P7/view?usp=sharing" target="_blank" rel="noopener" class="plink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Video</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="pmeta">
+        <span class="porg">RVLab · Humanoid Hardware</span>
+      </div>
+      <h3>Sensor Mount Design for ROBOTIS AI Worker</h3>
+      <div class="proj-img"><img src="img/aiworker-mount.png" alt="AI Worker sensor mount design"></div>
+      <p>
+        Designed mechanical mounts for the ROBOTIS AI Worker humanoid platform to extend its
+        sensing capability. Created a body-mounted bracket to add a 3D LiDAR, and a separate
+        angle-adjustable mount for the gripper camera to resolve field-of-view limitations during
+        manipulation.
+      </p>
+      <ul class="proj-list">
+        <li>Designed a torso-mounted bracket to integrate an additional 3D LiDAR</li>
+        <li>Designed an angle-adjustable gripper camera mount to improve field of view during grasping</li>
+      </ul>
+      <p class="role"><b>Focus</b> — mechanical design · sensor mounting · CAD · humanoid hardware</p>
+    </article>
+
+    <article class="proj">
+      <div class="pmeta">
+        <span class="porg">Autonomous Driving Club</span>
+      </div>
+      <h3>Autonomous Vehicle Build</h3>
+      <div class="proj-img"><img src="img/autonomous-pcb.png" alt="Vehicle control PCB"></div>
+      <p>
+        As club leader, I oversaw the entire vehicle build process, designing the hardware/embedded system
+        (actuators, sensors, MCU communication) and implemented steering control (Pure Pursuit)
+        and speed control (PID).
+      </p>
+      <p class="role"><b>Focus</b> — embedded hardware · sensor &amp; MCU integration · steering (Pure Pursuit) &amp; speed (PID) control</p>
+      <div class="plinks">
+        <a href="https://drive.google.com/file/d/1orYTT04FwKbkjxGoSKKgwuc__moMtIbu/view?usp=sharing" target="_blank" rel="noopener" class="plink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Competition video</a>
+        <a href="https://drive.google.com/file/d/18VMYD9442AK6NAiuttcyRdKETHYtF8JZ/view?usp=sharing" target="_blank" rel="noopener" class="plink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Research proposal</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="pmeta">
+        <span class="porg">Self-Built Car Club · Formula Student (Electric)</span>
+      </div>
+      <h3>High-Voltage Shutdown Circuit</h3>
+      <div class="proj-img"><img src="img/shutdown.png" alt="Shutdown circuit KiCad"></div>
+      <p>
+        Designed a safety shutdown circuit to handle 120&nbsp;V high voltage: cutting vehicle
+        power when a fault signal arises from the BMS, IMD (insulation monitoring), or interlock,
+        or when sudden-acceleration is detected. Designed and fabricated the PCB and applied it to the vehicle.
+      </p>
+      <p class="role"><b>Focus</b> — safety circuit design · KiCad PCB · BMS / IMD / interlock fault logic</p>
+      <div class="plinks">
+        <a href="https://drive.google.com/file/d/1A9CNS9xdaSNXor1gPXQbiub9xIOJ-tng/view?usp=sharing" target="_blank" rel="noopener" class="plink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Schematic / PCB</a>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="pmeta">
+        <span class="porg">Self-Built Car Club · Formula &amp; Baja</span>
+      </div>
+      <h3>Braking System Design</h3>
+      <div class="proj-img"><img src="img/brake.png" alt="Brake disc CAE"></div>
+      <p>
+        Computed braking force from vehicle kinematics, designed the brake disc accordingly,
+        and used CAE to optimize the design and verify structural safety.
+      </p>
+      <p class="role"><b>Focus</b> — brake force analysis · disc design · CAE optimization &amp; safety verification</p>
+      <div class="plinks">
+        <a href="https://drive.google.com/file/d/1zhvcQWOq1tRPF7R3dnpg9eqgXvzd5O3U/view?usp=sharing" target="_blank" rel="noopener" class="plink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Design report (PDF)</a>
+      </div>
+    </article>
+  </section>
+
+
+  <!-- AWARDS -->
+  <section class="block" id="awards">
+    <p class="sec-label">Awards</p>
+    <div class="award">
+      <div>
+        <h4>Excellence Award — Self-Built Autonomous Vehicle Division</h4>
+        <p class="org">University Creative Mobility Competition · Korea Transportation Safety Authority (KOTSA)</p>
+        <span class="role-tag">Leader</span>
+      </div>
+      <span class="date">Nov 2025</span>
+    </div>
+    <div class="award">
+      <div>
+        <h4>Acceleration Award — Baja Student</h4>
+        <p class="org">International Self-Built Car Competition · Yeungnam University</p>
+        <span class="role-tag">Team Member</span>
+      </div>
+      <span class="date">Nov 2021</span>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="block" id="skills">
+    <p class="sec-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-line">
+        <span class="sk">Simulation / Robotics</span>
+        <span class="sv"><span>NVIDIA Isaac Sim</span><span>PhysX</span><span>ROS2</span><span>AMCL / Navigation</span></span>
+      </div>
+      <div class="skill-line">
+        <span class="sk">Control / Embedded</span>
+        <span class="sv"><span>Embedded C</span><span>PID</span><span>Pure Pursuit</span><span>MCU / Sensors</span></span>
+      </div>
+      <div class="skill-line">
+        <span class="sk">Design / HW</span>
+        <span class="sv"><span>KiCad (Schematic / PCB)</span><span>AutoCAD</span><span>CATIA</span><span>Ansys</span></span>
+      </div>
+      <div class="skill-line">
+        <span class="sk">Domain</span>
+        <span class="sv"><span>Autonomous Driving</span><span>Vehicle Dynamics</span><span>Radar Perception</span><span>Mechatronics</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Get in touch</h2>
+    <p>I am hoping to continue my studies in graduate school, with research interests in autonomous mobility, vehicle control, and sensor perception. I would be grateful for any opportunity to learn, and I welcome any questions or feedback.</p>
+    <div class="clist">
+      <div class="crow"><span class="ck">Email</span><span><a href="mailto:ykm020130@kyonggi.ac.kr">ykm020130@kyonggi.ac.kr</a></span></div>
+      <div class="crow"><span class="ck">Affiliation</span><span>RVLab, Kyonggi University</span></div>
+      <div class="crow"><span class="ck">CV</span><span><a href="Gangmin_Yu_CV.pdf" target="_blank" rel="noopener">Download PDF</a></span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="yr"></span> Gangmin Yu — Mechanical Engineering, Kyonggi University</p>
+  </footer>
+</div>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
